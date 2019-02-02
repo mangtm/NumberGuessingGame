@@ -33,18 +33,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         newGame()
         
-        let fileURL = Bundle.main.path(forResource: "snowflake_-_One_Sound", ofType: "mp3")
-        do {
-        if let fileURL = fileURL {
-                audioPlaya = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileURL))
+        let fileURL = Bundle.main.path(forResource: "snowflake_-_One_Sound", ofType: "mp3")!
+            audioPlaya = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileURL))
             audioPlaya.numberOfLoops = -1
             audioPlaya.play()
-        } else {
-            print("could not find file")
-        }
-        } catch let err {
-            print("Can't play audio file  because of error: \(err)")
-        }
     }
     
     func resetMassage(){
